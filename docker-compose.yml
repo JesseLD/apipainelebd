@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  painelebdapi:
+    image: node:alpine
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: npm run deploy:prod
+    ports:
+      - "6632:3001"
