@@ -204,13 +204,13 @@ export class SingleChurchService {
       churchData: churchData[0][0] as any,
       branchesTotal: (branchesTotal[0][0] as any).total,
       totalStudents: (totalStudents[0][0] as any).total_students,
-      totalTeachers: (totalTeachers[0][0] as any).total_students,
+      totalTeachers: (totalTeachers[0][0] as any).total_teachers,
       matrixTeams: (matrixTeams[0][0] as any).total,
       matrizClasses: (matrizClasses[0][0] as any).total,
       studentsMatrixAndBranch: (studentsMatrixAndBranch[0][0] as any)
         .total_students,
       teachersMatrixAndBranch: (teachersMatrixAndBranch[0][0] as any)
-        .total_students,
+        .total_teachers,
       totalUsersExceptStudents: (totalUsersExceptStudents[0][0] as any)
         .total_users_except_students,
       totalUsers: (totalUsers[0][0] as any).total_users,
