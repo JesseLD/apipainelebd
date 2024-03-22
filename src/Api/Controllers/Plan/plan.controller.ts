@@ -29,9 +29,9 @@ class PlanController {
    * @param res Should Return a sinlge user
    * @returns An Object of a single user
    */
-  // async findOne(req: Request, res: Response) {
-  //   return res.json(await planService.findOne(req.params.id));
-  // }
+  async findOne(req: Request, res: Response) {
+    return res.json(await planService.findOne(req.params.id));
+  }
 
   /**
    *
@@ -40,9 +40,17 @@ class PlanController {
    * @returns An Object of the created user
    */
   async create(req: Request, res: Response) {
-    const { name, price, duration, description } = req.body;
+    const { name, price, duration, description, maxStudents, maxBranches } =
+      req.body;
     // const createUserDTO = new CreateUserDTO(name, email);
-    const createPlanDTO = new CreatePlanDTO(name, price, duration, description);
+    const createPlanDTO = new CreatePlanDTO(
+      name,
+      price,
+      duration,
+      description,
+      maxStudents,
+      maxBranches
+    );
     const response = await planService.create(createPlanDTO);
     return res.status(response.status).json({
       message: response.message,
@@ -57,13 +65,16 @@ class PlanController {
    * @returns An Object of the created user
    */
   async update(req: Request, res: Response) {
-    const { id, name, price, duration, description } = req.body;
+    const { id, name, price, duration, description, maxStudents, maxBranches } =
+      req.body;
     const updatePlanDTO = new UpdatePlanDTO(
       id,
       name,
       price,
       duration,
       description,
+      maxStudents,
+      maxBranches
     );
     const response = await planService.update(updatePlanDTO);
     return res.status(response.status).json({

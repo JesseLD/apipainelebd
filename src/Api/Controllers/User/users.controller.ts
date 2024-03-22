@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { UserService } from "../../Services/User/user.service";
 import { CreateUserDTO } from "./dto/createUser.dto";
+import { UpdateUserDTO } from "./dto/updateUser.dto";
 
 /**
  *
@@ -38,8 +39,8 @@ class UserController {
    * @returns An Object of the created user
    */
   async create(req: Request, res: Response) {
-    const { name, email } = req.body;
-    const createUserDTO = new CreateUserDTO(name, email);
+    const { name, email, password } = req.body;
+    const createUserDTO = new CreateUserDTO(name, email,password);
     return res.json(await userService.create(createUserDTO));
   }
 
@@ -49,11 +50,11 @@ class UserController {
    * @param res Should Upadate a single user
    * @returns An Object of the created user
    */
-  async update(req: Request, res: Response) {
-    const { id, name, email } = req.body;
-    const UpdateUserDTO = new CreateUserDTO(name, email);
-    return res.json(await userService.update(UpdateUserDTO));
-  }
+  // async update(req: Request, res: Response) {
+  //   const { id, name, email } = req.body;
+  //   const updateUserDTO = new UpdateUserDTO(name, email);
+  //   return res.json(await userService.update(updateUserDTO));
+  // }
 
   /**
    *
