@@ -23,7 +23,17 @@ export class PlanService {
   }
 
   async findOne(id: string) {
-    return { message: `Return user with id ${id}` };
+    try {
+      const plans = await prisma.plans.findUnique({
+        where: {
+          id: Number.parseInt(id),
+        },
+      });
+      return plans;
+    } catch (e) {
+      console.log(e);
+      return [];
+    }
   }
 
   async create(createPlanDTO: CreatePlanDTO) {
@@ -34,6 +44,8 @@ export class PlanService {
           price: createPlanDTO.price,
           duration: createPlanDTO.duration,
           description: createPlanDTO.description,
+          maxStudents: createPlanDTO.maxStudents,
+          maxBranches: createPlanDTO.maxBranches,
         },
       });
       return this.response;
@@ -53,6 +65,8 @@ export class PlanService {
           price: updatePlanDTO.price,
           duration: updatePlanDTO.duration,
           description: updatePlanDTO.description,
+          maxStudents: updatePlanDTO.maxStudents,
+          maxBranches: updatePlanDTO.maxBranches,
         },
         where: {
           id: updatePlanDTO.id,

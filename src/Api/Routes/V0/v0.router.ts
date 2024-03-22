@@ -2,6 +2,7 @@ import { Router, Request, Response } from "express";
 import { userRoutes } from "./User/user.routes";
 import { planRoutes } from "./Plan/plan.routes";
 import { churchRoutes } from "./Church/church.routes";
+import { reportRoutes } from "./Reports/report.routes";
 export const v0Router = Router();
 
 /**
@@ -17,3 +18,5 @@ v0Router.get("/", (req: Request, res: Response) => {
 v0Router.use("/Users", userRoutes);
 v0Router.use("/Plans", planRoutes);
 v0Router.use("/Church", churchRoutes);
+v0Router.use("/Reports", reportRoutes);
+

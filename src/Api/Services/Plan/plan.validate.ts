@@ -12,7 +12,8 @@ export const validateCreatePlan = [
   body("name").isString().withMessage("Invalid name"),
   body("price").isNumeric().withMessage("Invalid price"),
   body("duration").isNumeric().withMessage("Invalid duration"),
-
+  body("maxStudents").isNumeric().withMessage("Invalid maxStudents"),
+  body("maxBranches").isNumeric().withMessage("Invalid maxBranches"),
   /**
    * Request validation and intervention
    */
@@ -49,7 +50,8 @@ export const validateUpdatePlan = [
   body("name").isString().withMessage("Invalid name"),
   body("price").isNumeric().withMessage("Invalid price"),
   body("duration").isNumeric().withMessage("Invalid duration"),
-
+  body("maxStudents").isNumeric().withMessage("Invalid maxStudents"),
+  body("maxBranches").isNumeric().withMessage("Invalid maxBranches"),
   /**
    * Request validation and intervention
    */

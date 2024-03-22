@@ -43,7 +43,7 @@ userRoutes.post("/", validateCreateUser, userController.create);
  *
  * @put /Users Should Upadate a single user
  */
-userRoutes.put("/", validateUpdateUser, userController.update);
+// userRoutes.put("/", validateUpdateUser, userController.update);
 
 /**
  *

@@ -23,6 +23,8 @@ export const planRoutes = Router();
 
 planRoutes.get("/List", planController.findAll);
 
+planRoutes.get("/Plan/:id", planController.findOne);
+
 planRoutes.post("/New", validateCreatePlan, planController.create);
 
 planRoutes.put("/Update", validateUpdatePlan, planController.update);
